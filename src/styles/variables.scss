@@ -1,0 +1,21 @@
+@mixin background_page(
+    $background: backgroundPage,
+) {
+& {
+    background: $background;
+}
+
+
+}
+$mainTextColor: #FFFFFFB2;
+
+// $main-page-black: #343434;
+// $main-page: #3e3e3e;
+// $select: #df4916;
+// $text: #f3f5e1;
+// $wrap: #2c2c2c;
+
+// $white-text: #000000B2,
+// $white-block-styles: #00000008,
+// $white-scroll: #0000001A,
+// $white-button: #000000CC,
