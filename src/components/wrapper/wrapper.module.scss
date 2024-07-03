@@ -1,0 +1,105 @@
+@import "../styles/index.scss";
+
+.wrapper {
+  width: 70%;
+  height: 500px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+
+  .line {
+    width: 1px;
+    height: 100%;
+    border: none;
+    background: #ffffff33;
+    margin: auto 62px;
+  }
+
+  .scrollbar_style_block {
+    width: 100%;
+    height: 100%;
+
+    section {
+      height: 100%;
+      display: flex;
+
+      align-items: center;
+    }
+
+    .scrollbar_box {
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 15px 0px;
+
+      .scrollbar {
+        position: relative;
+        width: 30px;
+        height: 322px;
+        background: rgba(255, 255, 255, 0.1);
+
+        img {
+          position: relative;
+          transform: translate(-23px, 20px);
+        }
+      }
+
+      .inputs_scrollbar_styles {
+        position: relative;
+        transform: translate(20px, -32px);
+
+        display: flex;
+        flex-direction: column;
+
+        .input_scrollbar_style {
+          position: relative;
+          top: 5px;
+          padding: 9px 4px;
+
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 300;
+
+          color: rgba(255, 255, 255, 0.78);
+          font-weight: 400;
+          font-size: 14px;
+
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          width: 200px; // возможно потребуется удалить, при использовании интутов.
+        }
+      }
+    }
+
+    // border: 1px solid white;
+  }
+
+  .style_block {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .buttons_block {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .code_style_wrapper {
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      margin: 20px 0;
+
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 400;
+    }
+  }
+}
