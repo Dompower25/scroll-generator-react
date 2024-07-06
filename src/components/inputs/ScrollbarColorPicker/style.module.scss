@@ -1,0 +1,13 @@
+
+.wrapperColorPicker {
+    display: flex;
+}
+.colorPicker {
+    margin-right: 4px;
+width: 15px;
+height: 15px;
+border: 1px solid rgba(255, 255, 255, 0.78);
+border-radius: 4px;
+background-color: brown; //передавать стиль пропсом в див colorPicker
+cursor: pointer;
+}
