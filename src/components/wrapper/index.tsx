@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './wrapper.module.scss';
+import style from './style.module.scss';
 
 import SButton from "./button/SButton.vue";
 import ScrollbarColorPicker from "./inputs/ScrollbarColorPicker.vue";
@@ -75,15 +75,3 @@ const Wrapper: FC = ({}) => {
   )}
 
   export default Wrapper;
-
-
-
-
-<script setup lang="ts">
-
-
-</script>
-
-<template>
-  
-</template>
