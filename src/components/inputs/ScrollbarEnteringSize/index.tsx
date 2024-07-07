@@ -1,5 +1,5 @@
 import React from "react"
-import style from './style.module.scss';
+import styles from './style.module.scss';
 
 // const props = defineProps({
 //   defaultSize: {
@@ -33,9 +33,9 @@ const ScrollbarEnteringSize = () => {
 <>
 <input
     type="text"
-    class="input"
+    className={styles.input}
     v-model="valueSize"
-    @change="console.log($event.currentTarget?.value)"
+    // @change="console.log($event.currentTarget?.value)"
   />
 </>
   )

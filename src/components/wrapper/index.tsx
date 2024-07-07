@@ -36,22 +36,22 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarEnteringSize /> */}
+                <ScrollbarEnteringSize />
               </div>
               <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarColorPicker /> */}
-              </div>
-              <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarEnteringSize /> */}
-              </div>
-              <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarColorPicker /> */}
+                <ScrollbarColorPicker />
               </div>
               <div className={styles.input_scrollbar_style}>
                 {/* <ScrollbarEnteringSize /> */}
               </div>
               <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarColorPicker /> */}
+                <ScrollbarColorPicker />
+              </div>
+              <div className={styles.input_scrollbar_style}>
+                {/* <ScrollbarEnteringSize /> */}
+              </div>
+              <div className={styles.input_scrollbar_style}>
+                <ScrollbarColorPicker />
               </div>
               <div className={styles.input_scrollbar_style}>border style picker</div>
             </div>
