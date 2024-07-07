@@ -1,11 +1,11 @@
-import React from 'react';
 import styles from './style.module.scss';
 
 import ScrollbarColorPicker from '../inputs/ScrollbarColorPicker/index.js';
 import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
 import SButton from '../buttons/SButton/index.js';
+import { useEffect } from 'react';
 
-import useCopyText from "../api/useCopyText.js";
+// import useCopyText from "../api/useCopyText.js";
 
 
 
@@ -13,16 +13,23 @@ const indent = (size: number) => {
   return new Array(size).fill(" ").join("");
 };
 
-const getCssclassName = (classNameName: string, properties: {}, indentSize: number) => {
+const getCssСlassName = (classNameName: string, properties: {}, indentSize: number) => {
+
+  console.log(Object.entries(properties).map((key) => { return `${key}`}))
+
   return (
     classNameName +
     " {\n " +
     Object.entries(properties).map((value) => {
+
       return indent(indentSize) + `${value[0]}: ${value[1]};`;
     }) +
     "\n}"
   );
 };
+
+console.log(getCssСlassName('.testClass', { 'background-color': 'black' }, 2))
+
 
 const Wrapper = ({ }) => {
 
