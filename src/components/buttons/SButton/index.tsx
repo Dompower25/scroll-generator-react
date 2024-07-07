@@ -1,6 +1,5 @@
 import React from "react";
 import style from './style.module.scss';
-import CopyInfo from "../copy/CopyInfo.vue";
 
 // defineProps({
 //   innerText: {
@@ -39,21 +38,23 @@ import CopyInfo from "../copy/CopyInfo.vue";
 //   }, 2000);
 // }
 
-const SButton = ({
+// по нажатии на кнопку копирования текста требуется передать текст в функцию копирования
 
-}) => {
+// если копирование произошло удачно показать окно копирования текста с положительными отрибутами
+// при обратном слуачае с отрицательными отрибутами
+
+const SButton = ({ }) => {
   return (
-    
-    <button>
-        v-on:click="showCopyInfo"
-        class="wrapperButton"
-        :style="{ color: colorText, background: backgroundColor }"
-        {{ innerText }}
-  </button>
 
-  {/* <CopyInfo v-if="showState" :dynamic-style="dynamicClass" /> */}
-    
+    <button className={style.wrapperButton}>
+      {/* v-on:click="showCopyInfo"
+        
+        :style="{ color: colorText, background: backgroundColor }"
+        {{ innerText }} */}
+    </button>
   )
 }
 
 export default SButton;
+
+

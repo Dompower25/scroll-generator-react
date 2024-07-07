@@ -42,13 +42,13 @@ const Wrapper = ({ }) => {
                 <ScrollbarColorPicker />
               </div>
               <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarEnteringSize /> */}
+                <ScrollbarEnteringSize />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker />
               </div>
               <div className={styles.input_scrollbar_style}>
-                {/* <ScrollbarEnteringSize /> */}
+                <ScrollbarEnteringSize />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker />
@@ -61,9 +61,9 @@ const Wrapper = ({ }) => {
       <div className={styles.line}></div>
       <div className={styles.style_block}>
         <div className={styles.buttons_block}>
-          {/* <SButton />
           <SButton />
-          <SButton /> */}
+          <SButton />
+          <SButton />
         </div>
         <div className={styles.code_style_wrapper}>
           body::-webkit-scrollbar width: 1em;
@@ -73,7 +73,7 @@ const Wrapper = ({ }) => {
           1px; solid slategrey;
         </div>
         <div className={styles.buttons_block}>
-          {/* <SButton /> */}
+          <SButton />
         </div>
       </div>
     </div>
