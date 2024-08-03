@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import style from './style.module.scss';
 
 // defineProps({
@@ -42,15 +42,30 @@ import style from './style.module.scss';
 
 // если копирование произошло удачно показать окно копирования текста с положительными отрибутами
 // при обратном слуачае с отрицательными отрибутами
+type textCopyFunc = {
+  f: () => any
+}
 
-const SButton = ({ }) => {
+interface IButtonOptions {
+  innerText: string,
+  colorText: string,
+  backgroundColor: string,
+  copyText: textCopyFunc,
+}
+
+
+const SButton: FC<IButtonOptions> = ({innerText, colorText, backgroundColor, copyText }) => {
   return (
 
-    <button className={style.wrapperButton}>
-      {/* v-on:click="showCopyInfo"
-        
-        :style="{ color: colorText, background: backgroundColor }"
-        {{ innerText }} */}
+    <button className={style.wrapperButton}
+      style={{
+        color: colorText ? colorText : 'black',
+        backgroundColor: backgroundColor ? backgroundColor : 'white'
+      }}
+    >
+
+        {innerText ? innerText : 'text'}
+    
     </button>
   )
 }
