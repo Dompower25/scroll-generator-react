@@ -36,13 +36,12 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
   const [size, setSize] = useState(defaultSize)
   const [backup, setBackup] = useState(defaultSize)
 
-
-  const changeInInput = (enter: string) => {
+  const filtresInputValue = (enter: string) => {
     const reg = /^\d+$/;
 
     if (enter.match(reg)) {
-      let num = Number(enter.match(reg)?.input)
-      setBackup(num)
+      let isNumber = Number(enter.match(reg)?.input)
+      setBackup(isNumber)
     }
     return backup
   }
@@ -58,7 +57,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         className={styles.input}
         value={size}
         onChange={(e) => {
-          changeInInput(e.target.value)
+          filtresInputValue(e.target.value)
         }}
       />
     </>
