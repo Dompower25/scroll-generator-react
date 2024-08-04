@@ -42,19 +42,25 @@ import style from './style.module.scss';
 
 // если копирование произошло удачно показать окно копирования текста с положительными отрибутами
 // при обратном слуачае с отрицательными отрибутами
-type textCopyFunc = {
+
+
+
+
+
+
+type func = {
   f: () => any
 }
 
 interface IButtonOptions {
   innerText: string,
-  colorText: string,
-  backgroundColor: string,
-  copyText: textCopyFunc,
+  colorText?: string,
+  backgroundColor?: string,
+  clickFunction: func,
 }
 
 
-const SButton: FC<IButtonOptions> = ({innerText, colorText, backgroundColor, copyText }) => {
+const SButton: FC<IButtonOptions> = ({ innerText, colorText, backgroundColor, clickFunction }) => {
   return (
 
     <button className={style.wrapperButton}
@@ -62,10 +68,9 @@ const SButton: FC<IButtonOptions> = ({innerText, colorText, backgroundColor, cop
         color: colorText ? colorText : 'black',
         backgroundColor: backgroundColor ? backgroundColor : 'white'
       }}
+      onClick={() => clickFunction}
     >
-
-        {innerText ? innerText : 'text'}
-    
+      {innerText ? innerText : 'text'}
     </button>
   )
 }

@@ -13,23 +13,18 @@ const indent = (size: number) => {
   return new Array(size).fill(" ").join("");
 };
 
-const getCssСlassName = (classNameName: string, properties: {}, indentSize: number) => {
-
-  console.log(Object.entries(properties).map((key) => { return `${key}`}))
-
+const getCssСlassName = (classNameName: string, properties: {}, indentSize?: number): string => {
   return (
     classNameName +
     " {\n " +
     Object.entries(properties).map((value) => {
-
-      return indent(indentSize) + `${value[0]}: ${value[1]};`;
+      return indent(indentSize ? indentSize : 2) + `${value[0]}: ${value[1]};`;
     }) +
     "\n}"
   );
 };
 
-console.log(getCssСlassName('.testClass', { 'background-color': 'black' }, 2))
-
+console.log(getCssСlassName('.testClass', { 'background-color': 'black' }, 4))
 
 const Wrapper = ({ }) => {
 

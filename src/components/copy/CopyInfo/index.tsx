@@ -14,24 +14,24 @@ import style from './style.module.scss';
 
 const CopyInfo = () => {
   return (
-    <div class="copyWind" :class="dynamicStyle">
-    <div class="shell">
+    <div className="copyWind" :className="dynamicStyle">
+    <div className="shell">
       <img
         v-if="execution"
-        class="img"
+        className="img"
         src="../../assets/copyWindow/copySuccessfully.svg"
         alt="copy"
       />
 
       <img
         v-else
-        class="img"
+        className="img"
         src="../../assets/copyWindow/copyUnsuccessfully.svg"
         alt="copy"
       />
 
-      <div v-if="execution" class="textInformation">copy is successfully</div>
-      <div v-else class="textInformation">copy error</div>
+      <div v-if="execution" className="textInformation">copy is successfully</div>
+      <div v-else className="textInformation">copy error</div>
     </div>
   </div>
   )
