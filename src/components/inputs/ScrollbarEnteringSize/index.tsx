@@ -49,7 +49,6 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
 
   useEffect(() => {
     setSize(backup)
-    console.log(size)
   }, [backup])
 
   return (
@@ -60,7 +59,6 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         value={size}
         onChange={(e) => {
           changeInInput(e.target.value)
-          console.log(changeInInput(e.target.value))
         }}
       />
     </>
