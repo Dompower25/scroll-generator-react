@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, useState } from "react"
 import styles from './style.module.scss';
 
 // const props = defineProps({
@@ -28,16 +28,36 @@ import styles from './style.module.scss';
 // const valueSize = ref(checkingForNumber(props.defaultSize));
 // console.log(valueSize.value)
 
-const ScrollbarEnteringSize = () => {
+interface IScrollbarEnteringSize {
+  defaultSize: number
+}
+
+const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
+  const [size, setSize] = useState(defaultSize)
+
+  const changeInInput = (enter: string) => {
+    const reg = /^\d+$/;
+
+    const backup: number[] = [];
+    if (enter.match(reg)) {
+      return backup.push(enter.match(reg).input)
+    }
+    return backup
+
+  }
+
+
   return (
-<>
-<input
-    type="text"
-    className={styles.input}
-    v-model="valueSize"
-    // @change="console.log($event.currentTarget?.value)"
-  />
-</>
+    <>
+      <input
+        type="text"
+        className={styles.input}
+        value={size}
+        onChange={(e) => {
+          console.log(changeInInput(e.target.value))
+        }}
+      />
+    </>
   )
 }
 
