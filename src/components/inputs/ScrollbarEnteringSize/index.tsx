@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 import styles from './style.module.scss';
 
 // const props = defineProps({
@@ -34,18 +34,23 @@ interface IScrollbarEnteringSize {
 
 const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
   const [size, setSize] = useState(defaultSize)
+  const [backup, setBackup] = useState(defaultSize)
+
 
   const changeInInput = (enter: string) => {
     const reg = /^\d+$/;
 
-    const backup: number[] = [];
     if (enter.match(reg)) {
-      return backup.push(enter.match(reg).input)
+      let num = Number(enter.match(reg)?.input)
+      setBackup(num)
     }
     return backup
-
   }
 
+  useEffect(() => {
+    setSize(backup)
+    console.log(size)
+  }, [backup])
 
   return (
     <>
@@ -54,6 +59,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         className={styles.input}
         value={size}
         onChange={(e) => {
+          changeInInput(e.target.value)
           console.log(changeInInput(e.target.value))
         }}
       />
