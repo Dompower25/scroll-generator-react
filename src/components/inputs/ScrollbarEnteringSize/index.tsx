@@ -37,6 +37,11 @@ const filtresInputValue: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
   //     setBackup(isNumber)
   //   }
   //   return backup
+  
+    //попробовать данный метод для вывода значений в виде чисел
+    const numbers = str.match(/[0-9]/ig).join('')
+    return `${numbers} px`
+
   }
 
   useEffect(() => {
