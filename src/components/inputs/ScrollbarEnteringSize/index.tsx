@@ -1,14 +1,6 @@
 import React, { FC, useEffect, useState } from "react"
 import styles from './style.module.scss';
 
-// const props = defineProps({
-//   defaultSize: {
-//     type: Number,
-//     required: true,
-//     default: ' px'
-//   },
-// });
-
 // {/* // требуется сделать backup версию значения инпута и если значение не изменилось вернуть прежнее значение.
 
 // // при взаимодействии с инспутом в виде клика на него, значение valueSize изменяется на ''
@@ -25,25 +17,26 @@ import styles from './style.module.scss';
 //   return value;
 // };
 
-// const valueSize = ref(checkingForNumber(props.defaultSize));
-// console.log(valueSize.value)
+
 
 interface IScrollbarEnteringSize {
   defaultSize: number
 }
 
-const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
+const filtresInputValue: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
   const [size, setSize] = useState(defaultSize)
   const [backup, setBackup] = useState(defaultSize)
 
   const filtresInputValue = (enter: string) => {
     const reg = /^\d+$/;
 
-    if (enter.match(reg)) {
-      let isNumber = Number(enter.match(reg)?.input)
-      setBackup(isNumber)
-    }
-    return backup
+    // if(enter)
+
+  //   if (enter.match(reg)) {
+  //     const isNumber = Number(enter.match(reg)?.input)
+  //     setBackup(isNumber)
+  //   }
+  //   return backup
   }
 
   useEffect(() => {
@@ -56,8 +49,9 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         type="text"
         className={styles.input}
         value={size}
+        typeof="number"
         onChange={(e) => {
-          filtresInputValue(e.target.value)
+          setSize(e.target.value)
         }}
       />
     </>
