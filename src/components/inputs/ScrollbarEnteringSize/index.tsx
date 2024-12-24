@@ -20,33 +20,21 @@ import styles from './style.module.scss';
 
 
 interface IScrollbarEnteringSize {
-  defaultSize: number
+  defaultSize: string
 }
 
-const filtresInputValue: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
+const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
   const [size, setSize] = useState(defaultSize)
   const [backup, setBackup] = useState(defaultSize)
 
   const filtresInputValue = (enter: string) => {
-    const reg = /^\d+$/;
 
-    // if(enter)
-
-  //   if (enter.match(reg)) {
-  //     const isNumber = Number(enter.match(reg)?.input)
-  //     setBackup(isNumber)
-  //   }
-  //   return backup
-  
-    //попробовать данный метод для вывода значений в виде чисел
-    const numbers = str.match(/[0-9]/ig).join('')
-    return `${numbers} px`
+    return enter.match(/[0-9]/ig)?.join('')
 
   }
 
-  useEffect(() => {
-    setSize(backup)
-  }, [backup])
+
+
 
   return (
     <>
@@ -56,7 +44,7 @@ const filtresInputValue: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         value={size}
         typeof="number"
         onChange={(e) => {
-          setSize(e.target.value)
+          setSize(filtresInputValue(e.target.value))
         }}
       />
     </>
