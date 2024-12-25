@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from "react"
-import styles from './style.module.scss';
+import React, { FC, ReactHTMLElement, useEffect, useState } from "react";
+import styles from "./style.module.scss";
 
 // {/* // требуется сделать backup версию значения инпута и если значение не изменилось вернуть прежнее значение.
 
@@ -9,32 +9,18 @@ import styles from './style.module.scss';
 // //  например для установленном запретном типе данных в виде string -> в инпут нельзя вводить значение данного типа
 // //  при этом вывожить сообщение об неверном вводе либо каким-то другим образом показать юзеру о неверных действиях */}
 
-// const checkingForNumber = (value: any) => {
-//   console.log("переданное значение: ", value);
-//   if (typeof value) {
-//     return "change you is not number";
-//   }
-//   return value;
-// };
-
-
 
 interface IScrollbarEnteringSize {
-  defaultSize: string
+  defaultSize: string;
 }
 
 const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
-  const [size, setSize] = useState(defaultSize)
-  const [backup, setBackup] = useState(defaultSize)
+  const [size, setSize] = useState(defaultSize);
 
-  const filtresInputValue = (enter: string) => {
-
-    return enter.match(/[0-9]/ig)?.join('')
-
-  }
-
-
-
+  const inputValueFiltres = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const enter = event.target.value.match(/[0-9]/gi)?.join("");
+    setSize(enter ? enter : "");
+  };
 
   return (
     <>
@@ -43,12 +29,10 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
         className={styles.input}
         value={size}
         typeof="number"
-        onChange={(e) => {
-          setSize(filtresInputValue(e.target.value))
-        }}
+        onChange={inputValueFiltres}
       />
     </>
-  )
-}
+  );
+};
 
 export default ScrollbarEnteringSize;
