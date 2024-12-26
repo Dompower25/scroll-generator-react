@@ -54,15 +54,16 @@
 
       .inputs_scrollbar_styles {
         position: relative;
-        transform: translate(20px, -32px);
+        transform: translate(0px, -27px);
+
+        padding-left: 23px;
 
         display: flex;
         flex-direction: column;
 
         .input_scrollbar_style {
           position: relative;
-          top: 5px;
-          padding: 9px 4px;
+          padding: 8px 4px;
 
           font-family: "Inter", sans-serif;
           font-optical-sizing: auto;
