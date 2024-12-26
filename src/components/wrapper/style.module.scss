@@ -1,6 +1,8 @@
 .wrapper {
-  width: 70%;
+  width: 100%;
   height: 500px;
+
+  
 
   display: flex;
   justify-content: space-between;
@@ -20,18 +22,21 @@
     width: 100%;
     height: 100%;
 
+
     section {
       height: 100%;
       display: flex;
 
       align-items: center;
+      justify-content: flex-end;
     }
 
     .scrollbar_box {
-      position: absolute;
+      position: inherit;
       display: flex;
       justify-content: space-around;
       align-items: center;
+      right: 10px;
 
       padding: 15px 0px;
 
