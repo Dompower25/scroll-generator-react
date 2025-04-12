@@ -41,19 +41,19 @@ const Wrapper = ({ }) => {
                 <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker />
+                <ScrollbarColorPicker defaultColorInHexCode='fff' key={'cp1'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize defaultSize={'1'} key={'id2'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker />
+                <ScrollbarColorPicker defaultColorInHexCode='fff' key={'cp2'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize defaultSize={'4'} key={'id3'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker />
+                <ScrollbarColorPicker defaultColorInHexCode='fff' key={'cp3'}/>
               </div>
               <div className={styles.input_scrollbar_style}>border style picker</div>
             </div>
