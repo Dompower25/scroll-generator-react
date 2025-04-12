@@ -13,8 +13,7 @@ const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ defaultColorInHexCode
   const [color, setColor] = useState(defaultColorInHexCode ? defaultColorInHexCode : `#fff`)
 
   const convertingToHex = (color: string): string => {
-      let removeSimbol = color.length == 0 ? 'fff' : color.replace(/#/gi, '')
-      return `#${removeSimbol}`
+      return `#${color.length == 0 ? 'fff' : color.replace(/#/gi, '')}`
     }
 
   return (
