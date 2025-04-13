@@ -2,6 +2,7 @@ import styles from './style.module.scss';
 
 import ScrollbarColorPicker from '../inputs/ScrollbarColorPicker/index.js';
 import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
+import ScrollbarBorderStylePicker from '../inputs/ScrollbarBorderStylePicker/index.js';
 import SButton from '../buttons/SButton/index.js';
 
 // import useCopyText from "../api/useCopyText.js";
@@ -53,7 +54,9 @@ const Wrapper = ({ }) => {
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker defaultColorInHexCode='#000000' key={'cp3'}/>
               </div>
-              <div className={styles.input_scrollbar_style}>border style picker</div>
+              <div className={styles.input_scrollbar_style}>
+                <ScrollbarBorderStylePicker/>
+              </div>
             </div>
           </div>
         </section>

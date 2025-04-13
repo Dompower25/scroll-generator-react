@@ -8,7 +8,9 @@ interface IScrollbarEnteringSize {
 }
 const inputValueFiltres = (change: string): string | null => {
   const enter = change?.match(/[0-9]/gi)?.join("");
-  return enter ? `${enter.replace(/px/gi, '')} px` : null
+  return enter 
+            ? `${enter.replace(/px/gi, '')} px` 
+            : null
 }
 
 const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
@@ -21,7 +23,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
       <input
         type="text"
         className={styles.input}
-        value={size || 0}
+        value={size || '0 px'}
         typeof="string"
         onChange={(e)=> setSize(inputValueFiltres(e.target.value))}
       />

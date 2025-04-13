@@ -1,0 +1,8 @@
+@import "../../../styles/variables.scss";
+
+.borderPicker {
+    width: 100%;
+    height: 21px;
+    border: none;
+    @include background_page(#10162C);
+}
