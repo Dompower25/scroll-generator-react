@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import style from './style.module.scss'
-import { ChromePicker } from 'react-color'
+import { HexColorPicker as ColorPicker } from "react-colorful";
 
 //  при нажатии на colorPicker отображается окно с выбором цвета. Выбраный цвет отображается в формате HEX-кода
 //  по нажатию на div className={style.showColor} - появляется colorPicker в котором можно выбрать цвет и он добавится
@@ -35,16 +35,7 @@ const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ defaultColorInHexCode
             zIndex: '2',
             top: '30px',
           }}>
-            <div style={{
-              position: 'fixed',
-              top: '0px',
-              right: '0px',
-              bottom: '0px',
-              left: '0px',
-            }}
-              onClick={openReactColorPicker} />
-            <ChromePicker />
-            {/* <ChromePicker onChange={(e) => { setColor(convertingToHex(e.hex)) }} /> */}
+            <ColorPicker onChange={(e) => { setColor(convertingToHex(e)) }} onMouseLeave={openReactColorPicker}/>
           </div>
           : null}
         <input className={style.input} value={color} onChange={(e) => {
