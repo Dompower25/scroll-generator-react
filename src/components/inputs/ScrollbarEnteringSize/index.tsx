@@ -1,27 +1,29 @@
-import React, { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 
 
 interface IScrollbarEnteringSize {
-  defaultSize: string;
+  defaultSize: string | null;
+
+}
+const inputValueFiltres = (change: string): string | null => {
+  const enter = change?.match(/[0-9]/gi)?.join("");
+  return enter ? `${enter.replace(/px/gi, '')} px` : null
 }
 
-const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize }) => {
+const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
   const [size, setSize] = useState(defaultSize);
 
-  const inputValueFiltres = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const enter = event.target.value.match(/[0-9]/gi)?.join("");
-    setSize(enter ? enter : "enter number")
-  };
+  useEffect(()=> {setSize(inputValueFiltres(defaultSize || '0'))},[])
 
   return (
     <>
       <input
         type="text"
         className={styles.input}
-        value={size}
-        typeof="number"
-        onChange={inputValueFiltres}
+        value={size || 0}
+        typeof="string"
+        onChange={(e)=> setSize(inputValueFiltres(e.target.value))}
       />
     </>
   );

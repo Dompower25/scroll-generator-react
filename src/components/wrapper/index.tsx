@@ -3,10 +3,8 @@ import styles from './style.module.scss';
 import ScrollbarColorPicker from '../inputs/ScrollbarColorPicker/index.js';
 import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
 import SButton from '../buttons/SButton/index.js';
-import { useEffect } from 'react';
 
 // import useCopyText from "../api/useCopyText.js";
-
 
 
 const indent = (size: number) => {
@@ -41,19 +39,19 @@ const Wrapper = ({ }) => {
                 <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#fff' key={'cp1'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize defaultSize={'1'} key={'id2'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#fff' key={'cp2'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#d32525' key={'cp2'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize defaultSize={'4'} key={'id3'}/>
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#fff' key={'cp3'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#000000' key={'cp3'}/>
               </div>
               <div className={styles.input_scrollbar_style}>border style picker</div>
             </div>
