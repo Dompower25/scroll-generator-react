@@ -12,18 +12,19 @@ const indent = (size: number) => {
   return new Array(size).fill(" ").join("");
 };
 
+
 const getCssСlassName = (classNameName: string, properties: {}, indentSize?: number): string => {
   return (
     classNameName +
-    " {\n " +
+    " {" +
     Object.entries(properties).map((value) => {
-      return indent(indentSize ? indentSize : 2) + `${value[0]}: ${value[1]};`;
+      return indent(indentSize ? indentSize : 2) + '\n' + `${indent(indentSize ? indentSize : 2)}${value[0]}: ${value[1]};`
     }) +
     "\n}"
-  );
+  ).replace(/,/gi, '');
 };
 
-console.log(getCssСlassName('.testClass', { 'background-color': 'black' }, 4))
+console.log(getCssСlassName('.scroll_style', { "body::-webkit-scrollbar width": "1em", 'width': '10px' }))
 
 const Wrapper = ({ }) => {
 
@@ -40,22 +41,22 @@ const Wrapper = ({ }) => {
                 <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'1'} key={'id2'}/>
+                <ScrollbarEnteringSize defaultSize={'1'} key={'id2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#d32525' key={'cp2'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#d32525' key={'cp2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'4'} key={'id3'}/>
+                <ScrollbarEnteringSize defaultSize={'4'} key={'id3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#000000' key={'cp3'}/>
+                <ScrollbarColorPicker defaultColorInHexCode='#000000' key={'cp3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarBorderStylePicker/>
+                <ScrollbarBorderStylePicker />
               </div>
             </div>
           </div>
@@ -64,19 +65,23 @@ const Wrapper = ({ }) => {
       <div className={styles.line}></div>
       <div className={styles.style_block}>
         <div className={styles.buttons_block}>
-          <SButton />
-          <SButton />
-          <SButton />
+          <SButton innerText='css' />
+          <SButton innerText='sass' />
+          <SButton innerText='less' />
         </div>
         <div className={styles.code_style_wrapper}>
-          body::-webkit-scrollbar width: 1em;
-          body::-webkit-scrollbar-track
+  
+          {getCssСlassName('.scroll_style', { "body::-webkit-scrollbar width": "1em", 'width': '10px', 'body':':-webkit-scrollbar-track'})}
+
+          {/* body::-webkit-scrollbar width: 1em;
+          body::-webkit-scrollbar-track;
           box - shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          body::-webkit-scrollbar-thumb background - color: darkgrey; outline:
-          1px; solid slategrey;
+          body::-webkit-scrollbar-thumb background - color: darkgrey; 
+          outline: 1px; 
+          solid slategrey; */}
         </div>
         <div className={styles.buttons_block}>
-          <SButton />
+          <SButton innerText='copy' />
         </div>
       </div>
     </div>

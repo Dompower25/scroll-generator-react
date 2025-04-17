@@ -1,6 +1,4 @@
-import React from 'react'
 import Wrapper from './components/wrapper'
-import autentification from '../aut'
 
 function App() {
 
