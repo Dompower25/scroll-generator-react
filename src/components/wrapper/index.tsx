@@ -8,23 +8,28 @@ import SButton from '../buttons/SButton/index.js';
 // import useCopyText from "../api/useCopyText.js";
 
 
-const indent = (size: number) => {
-  return new Array(size).fill(" ").join("");
-};
+const indent = (size: number) => ' '.repeat(size)
 
 
-const getCssСlassName = (classNameName: string, properties: {}, indentSize?: number): string => {
+const generateCssStyles = (classNameName: string, properties: {}, indentSize?: number): string => {
   return (
     classNameName +
-    " {" +
-    Object.entries(properties).map((value) => {
-      return indent(indentSize ? indentSize : 2) + '\n' + `${indent(indentSize ? indentSize : 2)}${value[0]}: ${value[1]};`
-    }) +
+    " {\n" +
+    Object.entries(properties)
+      .map((value) => {
+        return indent(indentSize ? indentSize : 2) + `${value[0]}: ${value[1]};`
+      })
+      .join('\n') +
     "\n}"
-  ).replace(/,/gi, '');
+  )
 };
 
-console.log(getCssСlassName('.scroll_style', { "body::-webkit-scrollbar width": "1em", 'width': '10px' }))
+const cssClasses = generateCssStyles('.myScrollBarClass', {
+  'body::-webkit-scrollbar width': '1px',
+  'box-shadow': 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+  'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
+  'outline': '1px solid slategrey'
+})
 
 const Wrapper = ({ }) => {
 
@@ -70,15 +75,7 @@ const Wrapper = ({ }) => {
           <SButton innerText='less' />
         </div>
         <div className={styles.code_style_wrapper}>
-  
-          {getCssСlassName('.scroll_style', { "body::-webkit-scrollbar width": "1em", 'width': '10px', 'body':':-webkit-scrollbar-track'})}
-
-          {/* body::-webkit-scrollbar width: 1em;
-          body::-webkit-scrollbar-track;
-          box - shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          body::-webkit-scrollbar-thumb background - color: darkgrey; 
-          outline: 1px; 
-          solid slategrey; */}
+          <pre>{cssClasses}</pre>
         </div>
         <div className={styles.buttons_block}>
           <SButton innerText='copy' />
