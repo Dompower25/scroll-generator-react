@@ -4,6 +4,7 @@ import ScrollbarColorPicker from '../inputs/ScrollbarColorPicker/index.js';
 import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
 import ScrollbarBorderStylePicker from '../inputs/ScrollbarBorderStylePicker/index.js';
 import SButton from '../buttons/SButton/index.js';
+import { useEffect, useState } from 'react';
 
 // import useCopyText from "../api/useCopyText.js";
 
@@ -24,14 +25,24 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
   )
 };
 
-const cssClasses = generateCssStyles('.myScrollBarClass', {
-  'body::-webkit-scrollbar width': '1px',
-  'box-shadow': 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
-  'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
-  'outline': '1px solid slategrey'
-})
+
+
 
 const Wrapper = ({ }) => {
+  const [pixel, setPixel] = useState(0)
+  const [cssClass, setCssClass] = useState('')
+  const foo = () => {
+    setPixel(pixel + 1)
+  }
+
+  useEffect(() => {
+    setCssClass(generateCssStyles('.myScrollBarClass', {
+      'body::-webkit-scrollbar width': `${pixel}px`,
+      'box-shadow': 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+      'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
+      'outline': '1px solid slategrey'
+    }))
+  }, [pixel])
 
   return (
     <div className={styles.wrapper}>
@@ -73,9 +84,10 @@ const Wrapper = ({ }) => {
           <SButton innerText='css' />
           <SButton innerText='sass' />
           <SButton innerText='less' />
+          <button onClick={foo}>click me</button>
         </div>
         <div className={styles.code_style_wrapper}>
-          <pre>{cssClasses}</pre>
+          <pre>{cssClass}</pre>
         </div>
         <div className={styles.buttons_block}>
           <SButton innerText='copy' />
