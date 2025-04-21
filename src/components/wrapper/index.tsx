@@ -25,24 +25,33 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
   )
 };
 
-
+// сделать хук который будет принимать setState и изменять это значение.
+// данный хук требуется вызывать в ScrollbarEnteringSize, ScrollbarColorPicker, ScrollbarBorderStylePicker
+// и изменять значение в cssClass состоянии
 
 
 const Wrapper = ({ }) => {
-  const [pixel, setPixel] = useState(0)
+  const [scrollbarWidth, setScrollbarWidth] = useState(1)
+  const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
+  const [outlineSize, setOutlineSize] = useState(1)
+  const [outlineStyle, setOutlineStyle] = useState()
+  const [outlineColor, setOutlineColor] = useState()
+  
+
   const [cssClass, setCssClass] = useState('')
-  const foo = () => {
-    setPixel(pixel + 1)
-  }
+
+  // const foo = () => {
+  //   setPixel(pixel + 1)
+  // }
 
   useEffect(() => {
     setCssClass(generateCssStyles('.myScrollBarClass', {
-      'body::-webkit-scrollbar width': `${pixel}px`,
-      'box-shadow': 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+      'body::-webkit-scrollbar width': `${scrollbarWidth}px`,
+      'box-shadow': 'inset 0 0 6px `${scrollbarShadowColor}`',
       'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
-      'outline': '1px solid slategrey'
+      'outline': '`${outlineSize}px` `${outlineStyle}` `${outlineColor}`'
     }))
-  }, [pixel])
+  }, [scrollbarWidth])
 
   return (
     <div className={styles.wrapper}>
@@ -54,7 +63,7 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
+                <ScrollbarEnteringSize  defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'} />
@@ -84,7 +93,6 @@ const Wrapper = ({ }) => {
           <SButton innerText='css' />
           <SButton innerText='sass' />
           <SButton innerText='less' />
-          <button onClick={foo}>click me</button>
         </div>
         <div className={styles.code_style_wrapper}>
           <pre>{cssClass}</pre>

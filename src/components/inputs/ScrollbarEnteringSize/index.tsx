@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 
 interface IScrollbarEnteringSize {
   defaultSize: string | null;
-
+  state?: number
 }
 const inputValueFiltres = (change: string): string | null => {
   const enter = change?.match(/[0-9]/gi)?.join("");
@@ -25,7 +25,9 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
         className={styles.input}
         value={size || '0 px'}
         typeof="string"
-        onChange={(e)=> setSize(inputValueFiltres(e.target.value))}
+        onChange={(e)=> {setSize(inputValueFiltres(e.target.value))
+ 
+        }}
       />
     </>
   );
