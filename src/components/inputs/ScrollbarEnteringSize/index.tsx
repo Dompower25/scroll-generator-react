@@ -7,7 +7,7 @@ type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 interface IScrollbarEnteringSize {
   defaultSize: string | null;
   state?: number;
-  setState: SetState<number>;
+  setState: SetState<string>;
 }
 
 const inputValueFiltres = (change: string): string | null => {
@@ -17,6 +17,7 @@ const inputValueFiltres = (change: string): string | null => {
             : null
 }
 
+
 const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize, setState}) => {
   const [size, setSize] = useState(defaultSize);
 
@@ -25,7 +26,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize, setSta
   const updateState = useUpdateState(setState)
 
   const changeSize = (e: any) => {
-    updateState(e.target.value)
+    updateState(e)
   }
 
   return (
@@ -36,7 +37,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize, setSta
         value={size || '0 px'}
         typeof="string"
         onChange={(e)=> {setSize(inputValueFiltres(e.target.value))
-          changeSize(e)
+          changeSize(inputValueFiltres(e.target.value))
         }}
       />
     </>

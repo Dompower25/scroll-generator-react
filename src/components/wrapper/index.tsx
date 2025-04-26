@@ -31,11 +31,11 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
 
 
 const Wrapper = ({ }) => {
-  const [scrollbarWidth, setScrollbarWidth] = useState(1)
+  const [scrollbarWidth, setScrollbarWidth] = useState('1')
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
   const [scrollbarColor, setScrollbarColor] = useState('#3e4740')
-  const [roundSize, setRoundSize] = useState(2)
-  const [outlineSize, setOutlineSize] = useState(1)
+  const [roundSize, setRoundSize] = useState('2')
+  const [outlineSize, setOutlineSize] = useState('1')
   const [outlineStyle, setOutlineStyle] = useState('solid')
   const [outlineColor, setOutlineColor] = useState('#3e4740')
 
