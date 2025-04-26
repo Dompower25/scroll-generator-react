@@ -6,9 +6,11 @@ import { HexColorPicker as ColorPicker } from "react-colorful";
 //  по нажатию на div className={style.showColor} - появляется colorPicker в котором можно выбрать цвет и он добавится
 //  в input className={style.input} параметр value
 
+type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 interface IScrollbarColorPicker {
-  defaultColorInHexCode: string
+  defaultColorInHexCode: string;
+  setState: SetState<string>;
 }
 
 const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ defaultColorInHexCode }) => {

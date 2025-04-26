@@ -33,6 +33,8 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
 const Wrapper = ({ }) => {
   const [scrollbarWidth, setScrollbarWidth] = useState(1)
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
+  const [scrollbarColor, setScrollbarColor] = useState('#3e4740')
+  const [roundSize, setRoundSize] = useState(2)
   const [outlineSize, setOutlineSize] = useState(1)
   const [outlineStyle, setOutlineStyle] = useState('solid')
   const [outlineColor, setOutlineColor] = useState('#3e4740')
@@ -44,6 +46,7 @@ const Wrapper = ({ }) => {
     setCssClass(generateCssStyles('.myScrollBarClass', {
       'body::-webkit-scrollbar width': `${scrollbarWidth}px`,
       'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
+      'round-size': `${roundSize}px`,
       'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
       'outline': `${outlineSize}px ${outlineStyle} ${outlineColor}`
     }))
@@ -59,22 +62,22 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
+                <ScrollbarEnteringSize setState={setScrollbarWidth} defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'} />
+                <ScrollbarColorPicker setState={setscrollbarShadowColor} defaultColorInHexCode='#3e4740' key={'cp1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'1'} key={'id2'} />
+                <ScrollbarEnteringSize setState={setRoundSize} defaultSize={'1'} key={'id2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#d32525' key={'cp2'} />
+                <ScrollbarColorPicker setState={setScrollbarColor} defaultColorInHexCode='#d32525' key={'cp2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize defaultSize={'4'} key={'id3'} />
+                <ScrollbarEnteringSize setState={setOutlineSize} defaultSize={'4'} key={'id3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker defaultColorInHexCode='#000000' key={'cp3'} />
+                <ScrollbarColorPicker setState={setOutlineColor}  defaultColorInHexCode='#000000' key={'cp3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarBorderStylePicker />

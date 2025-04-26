@@ -1,11 +1,15 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./style.module.scss";
+import useUpdateState from "../../../hooks/useUpdateState";
 
+type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 interface IScrollbarEnteringSize {
   defaultSize: string | null;
-  state?: number
+  state?: number;
+  setState: SetState<number>;
 }
+
 const inputValueFiltres = (change: string): string | null => {
   const enter = change?.match(/[0-9]/gi)?.join("");
   return enter 
@@ -13,10 +17,16 @@ const inputValueFiltres = (change: string): string | null => {
             : null
 }
 
-const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
+const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize, setState}) => {
   const [size, setSize] = useState(defaultSize);
 
   useEffect(()=> {setSize(inputValueFiltres(defaultSize || '0'))},[])
+
+  const updateState = useUpdateState(setState)
+
+  const changeSize = (e: any) => {
+    updateState(e.target.value)
+  }
 
   return (
     <>
@@ -26,7 +36,7 @@ const ScrollbarEnteringSize: FC<IScrollbarEnteringSize> = ({ defaultSize}) => {
         value={size || '0 px'}
         typeof="string"
         onChange={(e)=> {setSize(inputValueFiltres(e.target.value))
- 
+          changeSize(e)
         }}
       />
     </>
