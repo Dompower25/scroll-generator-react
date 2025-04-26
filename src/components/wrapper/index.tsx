@@ -36,13 +36,9 @@ const Wrapper = ({ }) => {
   const [outlineSize, setOutlineSize] = useState(1)
   const [outlineStyle, setOutlineStyle] = useState('solid')
   const [outlineColor, setOutlineColor] = useState('#3e4740')
-  
+
 
   const [cssClass, setCssClass] = useState('')
-
-  // const foo = () => {
-  //   setPixel(pixel + 1)
-  // }
 
   useEffect(() => {
     setCssClass(generateCssStyles('.myScrollBarClass', {
@@ -51,7 +47,7 @@ const Wrapper = ({ }) => {
       'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
       'outline': `${outlineSize}px ${outlineStyle} ${outlineColor}`
     }))
-  }, [scrollbarWidth])
+  }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor])
 
   return (
     <div className={styles.wrapper}>
@@ -63,7 +59,7 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize  defaultSize={'12'} key={'id1'} />
+                <ScrollbarEnteringSize defaultSize={'12'} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker defaultColorInHexCode='#3e4740' key={'cp1'} />
