@@ -34,8 +34,8 @@ const Wrapper = ({ }) => {
   const [scrollbarWidth, setScrollbarWidth] = useState(1)
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
   const [outlineSize, setOutlineSize] = useState(1)
-  const [outlineStyle, setOutlineStyle] = useState()
-  const [outlineColor, setOutlineColor] = useState()
+  const [outlineStyle, setOutlineStyle] = useState('solid')
+  const [outlineColor, setOutlineColor] = useState('#3e4740')
   
 
   const [cssClass, setCssClass] = useState('')
@@ -47,9 +47,9 @@ const Wrapper = ({ }) => {
   useEffect(() => {
     setCssClass(generateCssStyles('.myScrollBarClass', {
       'body::-webkit-scrollbar width': `${scrollbarWidth}px`,
-      'box-shadow': 'inset 0 0 6px `${scrollbarShadowColor}`',
+      'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
       'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
-      'outline': '`${outlineSize}px` `${outlineStyle}` `${outlineColor}`'
+      'outline': `${outlineSize}px ${outlineStyle} ${outlineColor}`
     }))
   }, [scrollbarWidth])
 
