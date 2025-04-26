@@ -43,11 +43,6 @@ import style from './style.module.scss';
 // если копирование произошло удачно показать окно копирования текста с положительными отрибутами
 // при обратном слуачае с отрицательными отрибутами
 
-
-
-
-
-
 type func = {
   f: () => any
 }
@@ -56,7 +51,7 @@ interface IButtonOptions {
   innerText: string,
   colorText?: string,
   backgroundColor?: string,
-  clickFunction: func,
+  clickFunction?: func,
 }
 
 
