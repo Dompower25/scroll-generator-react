@@ -2,19 +2,9 @@ import React from "react";
 import style from './style.module.scss';
 
 
-// defineProps({
-//   execution: {
-//     type: Boolean,
-//     default: true,
-//   },
-//   dynamicStyle: {
-//     type: String,
-//   },
-// });
-
 const CopyInfo = () => {
   return (
-    <div className="copyWind" :className="dynamicStyle">
+    <div className="copyWind">
     <div className="shell">
       <img
         v-if="execution"

@@ -6,11 +6,7 @@ import ScrollbarBorderStylePicker from '../inputs/ScrollbarBorderStylePicker/ind
 import SButton from '../buttons/SButton/index.js';
 import { useEffect, useState } from 'react';
 
-// import useCopyText from "../api/useCopyText.js";
-
-
 const indent = (size: number) => ' '.repeat(size)
-
 
 const generateCssStyles = (classNameName: string, properties: {}, indentSize?: number): string => {
   return (
@@ -24,10 +20,6 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
     "\n}"
   )
 };
-
-// сделать хук который будет принимать setState и изменять это значение.
-// данный хук требуется вызывать в ScrollbarEnteringSize, ScrollbarColorPicker, ScrollbarBorderStylePicker
-// и изменять значение в cssClass состоянии
 
 
 const Wrapper = ({ }) => {
