@@ -5,6 +5,7 @@ import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
 import ScrollbarBorderStylePicker from '../inputs/ScrollbarBorderStylePicker/index.js';
 import SButton from '../buttons/SButton/index.js';
 import { useEffect, useState } from 'react';
+import CopyInfo from '../copy/CopyInfo/index.js';
 
 const indent = (size: number) => ' '.repeat(size)
 
@@ -21,16 +22,10 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
   )
 };
 
-const copyTextToClipboard: (text: string) => Promise<void> = async (text) => {
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log('Текст успешно скопирован в буфер обмена!');
-  } catch (err) {
-    console.error('Ошибка:', err);
-  }
-};
-
 const Wrapper = ({ }) => {
+  const [showCopyInfo, setShowCopyInfo] = useState(false)
+  const [executionCopy, setExecutionCopy] = useState(Boolean)
+
   const [scrollbarWidth, setScrollbarWidth] = useState('1')
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
   const [scrollbarColor, setScrollbarColor] = useState('#462a2a')
@@ -50,6 +45,21 @@ const Wrapper = ({ }) => {
       'outline': `${outlineSize} ${outlineStyle} ${outlineColor}`
     }))
   }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor])
+
+  const copyTextToClipboard: (text: string) => Promise<void> = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setExecutionCopy(true)
+      setShowCopyInfo(true)
+    } catch (err) {
+      setExecutionCopy(false)
+      setShowCopyInfo(true)
+    }
+  };
+
+  const copy = () => {
+    
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -99,6 +109,9 @@ const Wrapper = ({ }) => {
           <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass}/>
         </div>
       </div>
+
+          {showCopyInfo ? <CopyInfo execution={executionCopy}/> : null}
+
     </div>
   )
 }
