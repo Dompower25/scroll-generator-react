@@ -5,12 +5,11 @@ import { HexColorPicker as ColorPicker } from "react-colorful";
 type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 interface IScrollbarColorPicker {
-  defaultColorInHexCode: string;
   setState: SetState<string>;
   state: string;
 }
 
-const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ defaultColorInHexCode, setState: setColor, state: color }) => {
+const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ setState: setColor, state: color }) => {
   const [showColorPicker, setShowColorPicker] = useState(false)
 
   const convertingToHex = (color: string): string => {
@@ -33,7 +32,7 @@ const ScrollbarColorPicker: FC<IScrollbarColorPicker> = ({ defaultColorInHexCode
             zIndex: '2',
             top: '30px',
           }}>
-            <ColorPicker onChange={(e) => { setColor(convertingToHex(e)) }} onMouseLeave={openReactColorPicker}/>
+            <ColorPicker onChange={(e) => { setColor(convertingToHex(e)) }} onMouseLeave={openReactColorPicker} />
           </div>
           : null}
         <input className={style.input} value={color} onChange={(e) => {

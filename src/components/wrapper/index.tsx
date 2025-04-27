@@ -21,16 +21,23 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
   )
 };
 
+const copyTextToClipboard: (text: string) => Promise<void> = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log('Текст успешно скопирован в буфер обмена!');
+  } catch (err) {
+    console.error('Ошибка:', err);
+  }
+};
 
 const Wrapper = ({ }) => {
   const [scrollbarWidth, setScrollbarWidth] = useState('1')
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
-  const [scrollbarColor, setScrollbarColor] = useState('#3e4740')
+  const [scrollbarColor, setScrollbarColor] = useState('#462a2a')
   const [roundSize, setRoundSize] = useState('2')
   const [outlineSize, setOutlineSize] = useState('1')
   const [outlineStyle, setOutlineStyle] = useState('solid')
-  const [outlineColor, setOutlineColor] = useState('#3e4740')
-
+  const [outlineColor, setOutlineColor] = useState('#4c4c4c')
 
   const [cssClass, setCssClass] = useState('')
 
@@ -39,7 +46,7 @@ const Wrapper = ({ }) => {
       'body::-webkit-scrollbar width': `${scrollbarWidth}`,
       'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
       'round-size': `${roundSize}`,
-      'body::-webkit-scrollbar-thumb background-color': 'darkgrey',
+      'body::-webkit-scrollbar-thumb background-color': `${scrollbarColor}`,
       'outline': `${outlineSize} ${outlineStyle} ${outlineColor}`
     }))
   }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor])
@@ -54,25 +61,25 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth} defaultSize={'12'} key={'id1'} />
+                <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth}  key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker setState={setscrollbarShadowColor} state={scrollbarShadowColor} defaultColorInHexCode='#3e4740' key={'cp1'} />
+                <ScrollbarColorPicker setState={setscrollbarShadowColor} state={scrollbarShadowColor} key={'cp1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setRoundSize} state={roundSize} defaultSize={'5'} key={'id2'} />
+                <ScrollbarEnteringSize setState={setRoundSize} state={roundSize} key={'id2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker setState={setScrollbarColor} state={scrollbarColor} defaultColorInHexCode='#d32525' key={'cp2'} />
+                <ScrollbarColorPicker setState={setScrollbarColor} state={scrollbarColor} key={'cp2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize} defaultSize={'1'} key={'id3'} />
+                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize}  key={'id3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker setState={setOutlineColor} state={outlineColor} defaultColorInHexCode='#000000' key={'cp3'} />
+                <ScrollbarColorPicker setState={setOutlineColor} state={outlineColor} key={'cp3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarBorderStylePicker  setState={setOutlineStyle} state={outlineStyle} defaultValue='solid' key={'cp4'}/>
+                <ScrollbarBorderStylePicker  setState={setOutlineStyle} state={outlineStyle} key={'cp4'}/>
               </div>
             </div>
           </div>
@@ -80,16 +87,16 @@ const Wrapper = ({ }) => {
       </div>
       <div className={styles.line}></div>
       <div className={styles.style_block}>
-        <div className={styles.buttons_block}>
+        {/* <div className={styles.buttons_block}>
           <SButton innerText='css' />
           <SButton innerText='sass' />
           <SButton innerText='less' />
-        </div>
+        </div> */}
         <div className={styles.code_style_wrapper}>
           <pre>{cssClass}</pre>
         </div>
         <div className={styles.buttons_block}>
-          <SButton innerText='copy' />
+          <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass}/>
         </div>
       </div>
     </div>
