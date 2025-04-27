@@ -68,19 +68,19 @@ const Wrapper = ({ }) => {
                 <ScrollbarColorPicker setState={setscrollbarShadowColor} state={scrollbarShadowColor} defaultColorInHexCode='#3e4740' key={'cp1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setRoundSize} state={roundSize} defaultSize={'1'} key={'id2'} />
+                <ScrollbarEnteringSize setState={setRoundSize} state={roundSize} defaultSize={'5'} key={'id2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker setState={setScrollbarColor} state={scrollbarColor} defaultColorInHexCode='#d32525' key={'cp2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize} defaultSize={'4'} key={'id3'} />
+                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize} defaultSize={'1'} key={'id3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker setState={setOutlineColor} state={outlineColor} defaultColorInHexCode='#000000' key={'cp3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarBorderStylePicker />
+                <ScrollbarBorderStylePicker  setState={setOutlineStyle} state={outlineStyle} defaultValue='solid' key={'cp4'}/>
               </div>
             </div>
           </div>

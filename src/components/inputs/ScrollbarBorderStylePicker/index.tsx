@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from "./style.module.scss";
 
+type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
-const ScrollbarBorderStylePicker = () => {
+interface IScrollbarBorderStylePicker {
+  defaultValue: string;
+  state: string;
+  setState: SetState<string>;
+}
+
+
+const ScrollbarBorderStylePicker: FC<IScrollbarBorderStylePicker> = ({defaultValue, setState: setStyle, state: style}) => {
+
+
     return (
         <>
-            <select name="border_style" className={styles.borderPicker}>
+            <select name="border_style" className={styles.borderPicker} value={style} defaultValue={defaultValue} onChange={(e)=>{setStyle(e.target.value)}}>
                 <option value="none">None</option>
                 <option value="solid">Solid</option>
                 <option value="dotted">Dotted</option>
