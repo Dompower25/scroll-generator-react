@@ -10,19 +10,20 @@ const CopyInfo: FC<ICopyInfo> = (execution) => {
     <div className={style.copyWind}>
       <div className={style.shell}>
         {execution ? <img
-          v-if="execution"
           className={style.img}
           src="../../assets/copyWindow/copySuccessfully.svg"
           alt="copy"
         /> : <img
-          v-else
           className={style.img}
           src="../../assets/copyWindow/copyUnsuccessfully.svg"
           alt="copy"
         />
         }
-        <div v-if="execution" className={style.textInformation}>copy is successfully</div>
-        <div v-else className={style.textInformation}>copy error</div>
+        {
+          execution ? <div className={style.textInformation}>copy is successfully</div> : <div className={style.textInformation}>copy error</div>
+        }
+
+
       </div>
     </div>
   )

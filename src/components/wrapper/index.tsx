@@ -50,16 +50,12 @@ const Wrapper = ({ }) => {
     try {
       await navigator.clipboard.writeText(text);
       setExecutionCopy(true)
-      setShowCopyInfo(true)
     } catch (err) {
       setExecutionCopy(false)
+    } finally {
       setShowCopyInfo(true)
     }
   };
-
-  const copy = () => {
-    
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -109,9 +105,7 @@ const Wrapper = ({ }) => {
           <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass}/>
         </div>
       </div>
-
           {showCopyInfo ? <CopyInfo execution={executionCopy}/> : null}
-
     </div>
   )
 }
