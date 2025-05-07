@@ -54,11 +54,13 @@ const Wrapper = ({ }) => {
       setExecutionCopy(false)
     } finally {
       setShowCopyInfo(true)
+      setTimeout(()=> {setShowCopyInfo(false)}, 3200)
     }
   };
 
   return (
     <div className={styles.wrapper}>
+     
       <div className={styles.scrollbar_style_block}>
         <section>
           <div className={styles.scrollbar_box}>
@@ -105,7 +107,7 @@ const Wrapper = ({ }) => {
           <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass}/>
         </div>
       </div>
-          {showCopyInfo ? <CopyInfo execution={executionCopy}/> : null}
+      {showCopyInfo ? <CopyInfo execution={executionCopy} showMounted={3000}/> : null}
     </div>
   )
 }
