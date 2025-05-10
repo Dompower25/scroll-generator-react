@@ -26,24 +26,50 @@ const Wrapper = ({ }) => {
   const [showCopyInfo, setShowCopyInfo] = useState(false)
   const [executionCopy, setExecutionCopy] = useState(Boolean)
 
-  const [scrollbarWidth, setScrollbarWidth] = useState('1')
+  const [scrollbarWidth, setScrollbarWidth] = useState('10')
   const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
   const [scrollbarColor, setScrollbarColor] = useState('#462a2a')
-  const [roundSize, setRoundSize] = useState('2')
+  const [roundSize, setRoundSize] = useState('5')
   const [outlineSize, setOutlineSize] = useState('1')
-  const [outlineStyle, setOutlineStyle] = useState('solid')
+  const [outlineStyle, setOutlineStyle] = useState('none')
   const [outlineColor, setOutlineColor] = useState('#4c4c4c')
 
   const [cssClass, setCssClass] = useState('')
 
+  //   body {
+  //   overflow-y: scroll;
+
+  //   &::-webkit-scrollbar {
+  //     width: 20px; // Ширина скроллбара
+  //   }
+
+  //   &::-webkit-scrollbar-track {
+  //     box-shadow: inset 0 0 6px #3e4740; // Цвет фона трека
+
+  //   }
+
+  //   &::-webkit-scrollbar-thumb {
+  //     background-color: #3028af; // Цвет ползунка
+  //     border-radius: 2px; // Закругление углов ползунка
+  //     outline: 3px solid #5ddb1b;
+  //   }
+
+  // }
+
   useEffect(() => {
-    setCssClass(generateCssStyles('.myScrollBarClass', {
-      'body::-webkit-scrollbar width': `${scrollbarWidth}`,
-      'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
-      'round-size': `${roundSize}`,
-      'body::-webkit-scrollbar-thumb background-color': `${scrollbarColor}`,
-      'outline': `${outlineSize} ${outlineStyle} ${outlineColor}`
-    }))
+    setCssClass(
+      `${generateCssStyles(' &:: -webkit - scrollbar', {
+        'width': `${scrollbarWidth}`,
+      })}
+      ${generateCssStyles('&::-webkit-scrollbar', {
+        'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
+      })}
+      ${generateCssStyles('&::-webkit-scrollbar-thumb', {
+        'background-color': `${scrollbarColor}`,
+        'border-radius': `${roundSize}`,
+        'outline': `${outlineSize} ${outlineStyle} ${outlineColor}`,
+      })}
+      `)
   }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor])
 
   const copyTextToClipboard: (text: string) => Promise<void> = async (text) => {
@@ -54,13 +80,12 @@ const Wrapper = ({ }) => {
       setExecutionCopy(false)
     } finally {
       setShowCopyInfo(true)
-      setTimeout(()=> {setShowCopyInfo(false)}, 3200)
+      setTimeout(() => { setShowCopyInfo(false) }, 3200)
     }
   };
 
   return (
     <div className={styles.wrapper}>
-     
       <div className={styles.scrollbar_style_block}>
         <section>
           <div className={styles.scrollbar_box}>
@@ -69,7 +94,7 @@ const Wrapper = ({ }) => {
             </div>
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth}  key={'id1'} />
+                <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker setState={setscrollbarShadowColor} state={scrollbarShadowColor} key={'cp1'} />
@@ -81,13 +106,13 @@ const Wrapper = ({ }) => {
                 <ScrollbarColorPicker setState={setScrollbarColor} state={scrollbarColor} key={'cp2'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize}  key={'id3'} />
+                <ScrollbarEnteringSize setState={setOutlineSize} state={outlineSize} key={'id3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarColorPicker setState={setOutlineColor} state={outlineColor} key={'cp3'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarBorderStylePicker  setState={setOutlineStyle} state={outlineStyle} key={'cp4'}/>
+                <ScrollbarBorderStylePicker setState={setOutlineStyle} state={outlineStyle} key={'cp4'} />
               </div>
             </div>
           </div>
@@ -101,13 +126,13 @@ const Wrapper = ({ }) => {
           <SButton innerText='less' />
         </div> */}
         <div className={styles.code_style_wrapper}>
-          <pre>{cssClass}</pre>
+          <pre>{`body {\n overflow-y: scroll; \n${cssClass}\n}`}</pre>
         </div>
         <div className={styles.buttons_block}>
-          <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass}/>
+          <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass} />
         </div>
       </div>
-      {showCopyInfo ? <CopyInfo execution={executionCopy} showMounted={3000}/> : null}
+      {showCopyInfo ? <CopyInfo execution={executionCopy} showMounted={3000} /> : null}
     </div>
   )
 }
