@@ -39,7 +39,7 @@
   }
   
   .mounted {
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
     animation-name: mountedStyle;
   }
   .unmounted {
@@ -49,10 +49,10 @@
   
   @keyframes mountedStyle {
     0% {
-      transform: translateX(30px);
+       opacity: 0%;
     }
     100% {
-      right: 30px;
+       opacity: 100%;
     }
   }
   

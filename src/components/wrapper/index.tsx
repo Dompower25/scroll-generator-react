@@ -20,14 +20,14 @@ const generateCssStyles = (classNameName: string, properties: {}, indentSize?: n
       .join('\n') +
     "\n}"
   )
-};
+}
 
 const Wrapper = ({ }) => {
   const [showCopyInfo, setShowCopyInfo] = useState(false)
   const [executionCopy, setExecutionCopy] = useState(Boolean)
 
   const [scrollbarWidth, setScrollbarWidth] = useState('10')
-  const [scrollbarShadowColor, setscrollbarShadowColor] = useState('#3e4740')
+  const [scrollbarShadowColor, setScrollbarShadowColor] = useState('#3e4740')
   const [scrollbarColor, setScrollbarColor] = useState('#462a2a')
   const [roundSize, setRoundSize] = useState('5')
   const [outlineSize, setOutlineSize] = useState('1')
@@ -36,41 +36,22 @@ const Wrapper = ({ }) => {
 
   const [cssClass, setCssClass] = useState('')
 
-  //   body {
-  //   overflow-y: scroll;
-
-  //   &::-webkit-scrollbar {
-  //     width: 20px; // Ширина скроллбара
-  //   }
-
-  //   &::-webkit-scrollbar-track {
-  //     box-shadow: inset 0 0 6px #3e4740; // Цвет фона трека
-
-  //   }
-
-  //   &::-webkit-scrollbar-thumb {
-  //     background-color: #3028af; // Цвет ползунка
-  //     border-radius: 2px; // Закругление углов ползунка
-  //     outline: 3px solid #5ddb1b;
-  //   }
-
-  // }
-
   useEffect(() => {
     setCssClass(
-      `${generateCssStyles(' &:: -webkit - scrollbar', {
+  `${generateCssStyles(' &:: -webkit - scrollbar', {
         'width': `${scrollbarWidth}`,
-      })}
-      ${generateCssStyles('&::-webkit-scrollbar', {
+      }, 3)}   
+  ${generateCssStyles('&::-webkit-scrollbar', {
         'box-shadow': `inset 0 0 6px ${scrollbarShadowColor}`,
-      })}
-      ${generateCssStyles('&::-webkit-scrollbar-thumb', {
+      }, 3)}   
+  ${generateCssStyles('&::-webkit-scrollbar-thumb', {
         'background-color': `${scrollbarColor}`,
         'border-radius': `${roundSize}`,
         'outline': `${outlineSize} ${outlineStyle} ${outlineColor}`,
-      })}
+      }, 3)}
       `)
-  }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor])
+  }, [scrollbarWidth, scrollbarShadowColor, outlineSize, outlineStyle, outlineColor, scrollbarColor])
+
 
   const copyTextToClipboard: (text: string) => Promise<void> = async (text) => {
     try {
@@ -83,6 +64,7 @@ const Wrapper = ({ }) => {
       setTimeout(() => { setShowCopyInfo(false) }, 3200)
     }
   };
+
 
   return (
     <div className={styles.wrapper}>
@@ -97,7 +79,7 @@ const Wrapper = ({ }) => {
                 <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth} key={'id1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
-                <ScrollbarColorPicker setState={setscrollbarShadowColor} state={scrollbarShadowColor} key={'cp1'} />
+                <ScrollbarColorPicker setState={setScrollbarShadowColor} state={scrollbarShadowColor} key={'cp1'} />
               </div>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize setState={setRoundSize} state={roundSize} key={'id2'} />
@@ -126,7 +108,7 @@ const Wrapper = ({ }) => {
           <SButton innerText='less' />
         </div> */}
         <div className={styles.code_style_wrapper}>
-          <pre>{`body {\n overflow-y: scroll; \n${cssClass}\n}`}</pre>
+          <pre>{`body {\n  overflow-y: scroll; \n ${cssClass}\n}`}</pre>
         </div>
         <div className={styles.buttons_block}>
           <SButton innerText='copy' clickAction={copyTextToClipboard} actionArgs={cssClass} />
