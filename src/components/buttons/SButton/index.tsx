@@ -20,8 +20,8 @@ const SButton: FC<IButtonOptions> = ({ innerText, colorText, backgroundColor, cl
   return (
     <button className={style.wrapperButton}
       style={{
-        color: colorText ? colorText : 'black',
-        backgroundColor: backgroundColor ? backgroundColor : 'white'
+        color: colorText ? colorText : 'white',
+        backgroundColor: backgroundColor ? backgroundColor : 'inherit'
       }}
       onClick={handleClick}
     >
