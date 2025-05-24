@@ -6,15 +6,15 @@
 
   border-radius: 3px;
   background: linear-gradient(145deg, #251e33, #20192b);
-  box-shadow: 10px 10px 20px #14101c,
-    -10px -10px 20px #322844;
+  box-shadow: 5px 5px 10px #14101c,
+    -5px -5px 10px #322844;
 
 
   &:active {
     border-radius: 3px;
     background: linear-gradient(145deg, #20192b, #251e33);
-    box-shadow: 10px 10px 20px #14101c,
-      -10px -10px 20px #322844;
+    box-shadow: 5px 5px 10px #14101c,
+      -5px -5px 10px #322844;
   }
 
   position: relative;
