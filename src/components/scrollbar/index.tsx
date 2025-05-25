@@ -9,9 +9,11 @@ const Scrollbar: FC<IScrollbar> = ({ }) => {
 
     return (
         <>
+        <div className={style.scrollbar}>
             <div className={style.scrollbarBackground}>
                 <div className={style.scrollbarThumb}></div>
             </div>
+        </div>
         </>
     )
 
