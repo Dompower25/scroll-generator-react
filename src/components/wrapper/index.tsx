@@ -1,11 +1,12 @@
+import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
 import ScrollbarColorPicker from '../inputs/ScrollbarColorPicker/index.js';
 import ScrollbarEnteringSize from '../inputs/ScrollbarEnteringSize/index.js';
 import ScrollbarBorderStylePicker from '../inputs/ScrollbarBorderStylePicker/index.js';
 import SButton from '../buttons/SButton/index.js';
-import { useEffect, useState } from 'react';
 import CopyInfo from '../copy/CopyInfo/index.js';
+import Scrollbar from '../scrollbar/index.js';
 
 const indent = (size: number) => ' '.repeat(size)
 
@@ -71,6 +72,7 @@ const Wrapper = ({ }) => {
       <div className={styles.scrollbar_style_block}>
         <section>
           <div className={styles.scrollbar_box}>
+            <Scrollbar/>
             <div className={styles.scrollbar}>
               <img src="../public/Group11.svg" alt="scrollbar" />
             </div>
