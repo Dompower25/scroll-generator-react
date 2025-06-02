@@ -1,11 +1,77 @@
 .scrollbar {
-    position: relative;
-    width: 30px;  //управление параметром из JavaScript
-    height: 322px;  //выполнить оптимизацию! не оставлять фиксированную величину!
+    // position: absolute;
+    width: 30px; //управление параметром из JavaScript
+    height: 322px; //выполнить оптимизацию! не оставлять фиксированную величину!
 
-    background: rgba(255, 255, 255, 0.1);  //удалить
+    background: rgba(255, 255, 255, 0.1); //удалить
     margin-right: 60px; //удалить
-    
-    
 
+}
+
+.arrowRigth {
+    position: relative;
+    left: 30px; //значение динамически изменять из JS при изменении ширины скроллбара
+
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid #ffffff;
+    }
+
+    &::after {
+        content: '';
+        top: 4px;
+        left: 2px;
+        position: absolute;
+        width: 15px;
+        height: 0px;
+        border: 1px solid #ffffff;
+        border-radius: 1px;
+        background-color: #ffffff;
+    }
+}
+
+.arrowLeft {
+    position: relative;
+    right: 20px; //значение динамически изменять из JS при изменении ширины скроллбара
+
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 10px solid #ffffff;
+    }
+
+    &::after {
+        content: '';
+        top: 4px;
+        left: 1px;
+        position: absolute;
+        width: 15px;
+        height: 0px;
+        border: 1px solid #ffffff;
+        border-radius: 1px;
+        background-color: #ffffff;
+    }
+}
+
+.circle {
+    position: relative;
+    top: 20px;  //значение подобрать в зависимости от высоты строк ввода
+
+    left: 30%;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
 }
