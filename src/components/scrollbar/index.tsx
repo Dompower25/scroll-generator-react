@@ -16,7 +16,9 @@ const Scrollbar: FC<IScrollbar> = ({ }) => {
                 <div className={style.circle}/>
 
                 <div className={style.scrollbarBackground}>
-                    <div className={style.scrollbarThumb}></div>
+                    <div className={style.scrollbarThumb}>
+                        
+                    </div>
                 </div>
             </div>
         </>
