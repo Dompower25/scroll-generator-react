@@ -85,6 +85,7 @@
 
     .scrollbarBlock {
         position: relative;
+        left: 4px;
 
         .scrollbarThumb {
             z-index: 999;
@@ -96,18 +97,47 @@
             background-color: rgba(0, 0, 0, 1);
             border-radius: 11px;
 
-
+            .scrollbarPosition {
+                position: relative;
+                top: 30px;
+                left: 3px;
+            }
         }
 
         .backGroundScrollbarThumbTop {
-            position: absolute;
+            position: relative;
             top: 78px;
-
             width: 22px;
             height: 23px;
             border-radius: 12px;
             border-top: 2px solid #ffffff;
             border-top-width: 12px;
+        }
+
+        .backGroundScrollbarThumbMidle {
+            position: relative;
+            top: 100px;
+            width: 18px;
+            height: 80px;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            
+        }
+
+        .backGroundScrollbarThumbBottom {
+            position: relative;
+            top: 90px;
+            width: 18px;
+            height: 75px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            border-top-style: none;
+            border-left-style: dashed;
+            border-right-style: dashed;
+            border-bottom-style: dashed;
+            border-width: 2px;
         }
     }
 }
