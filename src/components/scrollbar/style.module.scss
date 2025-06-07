@@ -6,72 +6,108 @@
     background: rgba(255, 255, 255, 0.1); //удалить
     margin-right: 60px; //удалить
 
-}
 
-.arrowRigth {
-    position: relative;
-    left: 30px; //значение динамически изменять из JS при изменении ширины скроллбара
+    .arrowBlock {
+        position: relative;
+        top: 22px;
+
+        .arrowRigth {
+            position: relative;
+            left: 30px; //значение динамически изменять из JS при изменении ширины скроллбара
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-right: 10px solid #ffffff;
+            }
+
+            &::after {
+                content: '';
+                top: 4px;
+                left: 2px;
+                position: absolute;
+                width: 15px;
+                height: 0px;
+                border: 1px solid #ffffff;
+                border-radius: 1px;
+                background-color: #ffffff;
+            }
+        }
+
+        .arrowLeft {
+            position: relative;
+            right: 20px; //значение динамически изменять из JS при изменении ширины скроллбара
 
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-right: 10px solid #ffffff;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 10px;
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 10px solid #ffffff;
+            }
+
+            &::after {
+                content: '';
+                top: 4px;
+                left: 1px;
+                position: absolute;
+                width: 15px;
+                height: 0px;
+                border: 1px solid #ffffff;
+                border-radius: 1px;
+                background-color: #ffffff;
+            }
+        }
     }
 
-    &::after {
-        content: '';
-        top: 4px;
-        left: 2px;
-        position: absolute;
-        width: 15px;
-        height: 0px;
-        border: 1px solid #ffffff;
-        border-radius: 1px;
-        background-color: #ffffff;
-    }
-}
+    .circle {
+        position: relative;
+        //значение подобрать в зависимости от высоты строк ввода
 
-.arrowLeft {
-    position: relative;
-    right: 20px; //значение динамически изменять из JS при изменении ширины скроллбара
-
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 10px;
-        width: 0;
-        height: 0;
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-left: 10px solid #ffffff;
+        left: 30%;
+        width: 8px;
+        height: 8px;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
     }
 
-    &::after {
-        content: '';
-        top: 4px;
-        left: 1px;
-        position: absolute;
-        width: 15px;
-        height: 0px;
-        border: 1px solid #ffffff;
-        border-radius: 1px;
-        background-color: #ffffff;
+    .boxShadowPosition {
+        top: 55px;
     }
-}
 
-.circle {
-    position: relative;
-    top: 20px;  //значение подобрать в зависимости от высоты строк ввода
+    .scrollbarBlock {
+        position: relative;
 
-    left: 30%;
-    width: 8px;
-    height: 8px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
+        .scrollbarThumb {
+            z-index: 999;
+            position: absolute;
+            top: 80px;
+            left: 2px;
+            width: 18px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 1);
+            border-radius: 11px;
+
+
+        }
+
+        .backGroundScrollbarThumbTop {
+            position: absolute;
+            top: 78px;
+
+            width: 22px;
+            height: 23px;
+            border-radius: 12px;
+            border-top: 2px solid #ffffff;
+            border-top-width: 12px;
+        }
+    }
 }
