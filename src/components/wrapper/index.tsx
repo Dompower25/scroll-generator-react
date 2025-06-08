@@ -73,9 +73,9 @@ const Wrapper = ({ }) => {
         <section>
           <div className={styles.scrollbar_box}>
             <Scrollbar/>
-            <div className={styles.scrollbar}>
+            {/* <div className={styles.scrollbar}>
               <img src="../public/Group11.svg" alt="scrollbar" />
-            </div>
+            </div> */}
             <div className={styles.inputs_scrollbar_styles}>
               <div className={styles.input_scrollbar_style}>
                 <ScrollbarEnteringSize setState={setScrollbarWidth} state={scrollbarWidth} key={'id1'} />
