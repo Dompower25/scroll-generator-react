@@ -11,60 +11,66 @@
         position: relative;
         top: 22px;
 
-        .arrowRigth {
-            position: relative;
-            left: 30px; //значение динамически изменять из JS при изменении ширины скроллбара
+    }
 
-            &::before {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-                border-right: 10px solid #ffffff;
-            }
+    .arrowThumbBlock {
+        position: relative;
+        top: 150px;
+    }
 
-            &::after {
-                content: '';
-                top: 4px;
-                left: 2px;
-                position: absolute;
-                width: 15px;
-                height: 0px;
-                border: 1px solid #ffffff;
-                border-radius: 1px;
-                background-color: #ffffff;
-            }
+    .arrowRigth {
+        position: relative;
+        left: 30px; //значение динамически изменять из JS при изменении ширины скроллбара
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 10px solid #ffffff;
         }
 
-        .arrowLeft {
-            position: relative;
-            right: 20px; //значение динамически изменять из JS при изменении ширины скроллбара
+        &::after {
+            content: '';
+            top: 4px;
+            left: 2px;
+            position: absolute;
+            width: 15px;
+            height: 0px;
+            border: 1px solid #ffffff;
+            border-radius: 1px;
+            background-color: #ffffff;
+        }
+    }
+
+    .arrowLeft {
+        position: relative;
+        right: 20px; //значение динамически изменять из JS при изменении ширины скроллбара
 
 
-            &::before {
-                content: '';
-                position: absolute;
-                left: 10px;
-                width: 0;
-                height: 0;
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-                border-left: 10px solid #ffffff;
-            }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 10px solid #ffffff;
+        }
 
-            &::after {
-                content: '';
-                top: 4px;
-                left: 1px;
-                position: absolute;
-                width: 15px;
-                height: 0px;
-                border: 1px solid #ffffff;
-                border-radius: 1px;
-                background-color: #ffffff;
-            }
+        &::after {
+            content: '';
+            top: 4px;
+            left: 1px;
+            position: absolute;
+            width: 15px;
+            height: 0px;
+            border: 1px solid #ffffff;
+            border-radius: 1px;
+            background-color: #ffffff;
         }
     }
 
@@ -121,7 +127,7 @@
             height: 80px;
             border-left: 2px solid #ffffff;
             border-right: 2px solid #ffffff;
-            
+
         }
 
         .backGroundScrollbarThumbBottom {
@@ -140,4 +146,11 @@
             border-width: 2px;
         }
     }
+
+    .circleColorBorderPosition {
+        top: 90px;
+        left: 13px;
+
+    }
+
 }

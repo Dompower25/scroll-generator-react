@@ -15,11 +15,16 @@ const Scrollbar: FC<IScrollbar> = ({ }) => {
                     <div className={style.arrowLeft} />
                 </div>
                 <div className={`${style.circle} ${style.boxShadowPosition}`} />
-
+                <div className={style.arrowThumbBlock}>
+                    <div className={style.arrowRigth} />
+                    <div className={style.arrowLeft} />
+                </div>
                 <div className={style.scrollbarBlock}>
                     <div className={style.scrollbarThumb}>
                         <div className={`${style.circle} ${style.scrollbarPosition}`} />
+                        <div className={`${style.circle} ${style.circleColorBorderPosition}`} />
                     </div>
+
                     <div className={style.backGroundScrollbarThumbTop}></div>
                     <div className={style.backGroundScrollbarThumbMidle}></div>
                     <div className={style.backGroundScrollbarThumbBottom}></div>
