@@ -1,4 +1,4 @@
-#SCROLLBAR GENERATOR
+# SCROLLBAR GENERATOR
 
 
 что делает проект? - генерирует готовый CSS код для стилизации скроллбара
