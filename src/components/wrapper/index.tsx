@@ -27,19 +27,19 @@ const Wrapper = ({ }) => {
   const [showCopyInfo, setShowCopyInfo] = useState(false)
   const [executionCopy, setExecutionCopy] = useState(Boolean)
 
-  const [scrollbarWidth, setScrollbarWidth] = useState('10')
+  const [scrollbarWidth, setScrollbarWidth] = useState('30')
   const [scrollbarShadowColor, setScrollbarShadowColor] = useState('#3e4740')
+  const [roundSize, setRoundSize] = useState('11')
   const [scrollbarColor, setScrollbarColor] = useState('#462a2a')
-  const [roundSize, setRoundSize] = useState('5')
   const [outlineSize, setOutlineSize] = useState('1')
-  const [outlineStyle, setOutlineStyle] = useState('none')
-  const [outlineColor, setOutlineColor] = useState('#4c4c4c')
+  const [outlineColor, setOutlineColor] = useState('#ffffff')
+  const [outlineStyle, setOutlineStyle] = useState('dashed')
 
   const [cssClass, setCssClass] = useState('')
 
   useEffect(() => {
     setCssClass(
-  `${generateCssStyles(' &:: -webkit - scrollbar', {
+      `${generateCssStyles(' &:: -webkit - scrollbar', {
         'width': `${scrollbarWidth}`,
       }, 3)}   
   ${generateCssStyles('&::-webkit-scrollbar', {
@@ -72,7 +72,14 @@ const Wrapper = ({ }) => {
       <div className={styles.scrollbar_style_block}>
         <section>
           <div className={styles.scrollbar_box}>
-            <Scrollbar/>
+            <Scrollbar
+              scrollbarWidth={scrollbarWidth}
+              scrollbarShadowColor={scrollbarShadowColor}
+              roundSize={roundSize}
+              scrollbarColor={scrollbarColor}
+              outlineSize={outlineSize}
+              outlineColor={outlineColor}
+              outlineStyle={outlineStyle} />
             {/* <div className={styles.scrollbar}>
               <img src="../public/Group11.svg" alt="scrollbar" />
             </div> */}

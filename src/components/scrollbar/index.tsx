@@ -1,35 +1,45 @@
 import { FC } from "react";
-import style from './style.module.scss';
+import styles from './style.module.scss';
 
 interface IScrollbar {
+    scrollbarWidth: string;
+    scrollbarShadowColor: string;
+    roundSize: string;
+    scrollbarColor: string;
+    outlineSize: string;
+    outlineColor: string;
+    outlineStyle: string;
 
 }
 
-const Scrollbar: FC<IScrollbar> = ({ }) => {
+const Scrollbar: FC<IScrollbar> = ({ scrollbarWidth, scrollbarShadowColor, roundSize, scrollbarColor, outlineSize, outlineColor, outlineStyle }) => {
 
     return (
         <>
-            <div className={style.scrollbar}>
-                <div className={style.arrowBlock}>
-                    <div className={`${style.arrowRigth} ${style.arrowRigthPosition}`} />
-                    <div className={`${style.arrowLeft} ${style.arrowLeftPosition}`} />
+            <div className={styles.scrollbar} style={{ width: scrollbarWidth, background: scrollbarShadowColor }}>
+                <div className={styles.arrowBlock}>
+                    <div className={`${styles.arrowRigth} ${styles.arrowRigthPosition}`} />
+                    <div className={`${styles.arrowLeft} ${styles.arrowLeftPosition}`} style={{}} />
                 </div>
-                <div className={`${style.circle} ${style.boxShadowPosition}`} />
-                <div className={style.arrowThumbBlock}>
-                    <div className={`${style.arrowRigth} ${style.arrowRigthPositionInThumb}`} />
-                    <div className={`${style.arrowLeft} ${style.arrowLeftPositionInThumb}`} />
+                <div className={`${styles.circle} ${styles.boxShadowPosition}`} />
+                <div className={styles.arrowThumbBlock}>
+                    <div className={`${styles.arrowRigth} ${styles.arrowRigthPositionInThumb}`} />
+                    <div className={`${styles.arrowLeft} ${styles.arrowLeftPositionInThumb}`} />
                 </div>
-                <div className={style.scrollbarBlock}>
-                    <div className={style.scrollbarThumb}>
-                        <div className={`${style.circle} ${style.scrollbarPosition}`} />
-                        <div className={`${style.circle} ${style.circleColorBorderPosition}`} />
+                <div className={styles.scrollbarBlock} >
+                    <div className={styles.scrollbarThumb} style={{ background: scrollbarColor, borderRadius: roundSize, }}>
+                        <div className={`${styles.circle} ${styles.scrollbarPosition}`} />
+                        <div className={`${styles.circle} ${styles.circleColorBorderPosition}`} />
                     </div>
 
-                    <div className={style.backGroundScrollbarThumbTop}></div>
-                    <div className={style.backGroundScrollbarThumbMidle}></div>
-                    <div className={style.backGroundScrollbarThumbBottom}></div>
+                    <div className={styles.backGroundScrollbarThumbTop} style={{ borderRadius: roundSize, borderColor: outlineColor }}></div>
+                    <div className={styles.backGroundScrollbarThumbMidle} style={{ borderColor: outlineColor }}></div>
+                    <div className={styles.backGroundScrollbarThumbBottom} style={{
+                        borderColor: outlineColor,
+                        borderStyle: outlineStyle,
+                    }}></div>
                 </div>
-            </div>
+            </div >
         </>
     )
 

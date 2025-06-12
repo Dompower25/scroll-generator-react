@@ -1,10 +1,8 @@
 .scrollbar {
     // position: absolute;
-    width: 30px; //управление параметром из JavaScript
     height: 322px; //выполнить оптимизацию! не оставлять фиксированную величину!
 
     margin-right: 5px;
-    background: rgba(255, 255, 255, 0.1); //удалить ??
     // margin-right: 60px; //удалить
 
 
@@ -95,7 +93,6 @@
 
     .circle {
         position: relative;
-        //значение подобрать в зависимости от высоты строк ввода
 
         left: 30%;
         width: 8px;
@@ -119,8 +116,6 @@
             left: 2px;
             width: 18px;
             height: 200px;
-            background-color: rgba(0, 0, 0, 1);
-            border-radius: 11px;
             
             .scrollbarPosition {
                 overflow: hidden;
@@ -135,7 +130,7 @@
             top: 78px;
             width: 22px;
             height: 23px;
-            border-radius: 12px;
+            border-radius: 11px;
             border-top: 2px solid #ffffff;
             border-top-width: 12px;
         }
