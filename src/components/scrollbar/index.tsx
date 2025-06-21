@@ -16,11 +16,10 @@ const Scrollbar: FC<IScrollbar> = ({ scrollbarWidth, scrollbarShadowColor, round
 
     return (
         <>
+            <div className={styles.arrowBlock}>
+                <div className={`${styles.arrowLeft} ${styles.arrowLeftPosition}`} style={{}} />
+            </div>
             <div className={styles.scrollbar} style={{ width: scrollbarWidth, background: scrollbarShadowColor }}>
-                <div className={styles.arrowBlock}>
-                    <div className={`${styles.arrowRigth} ${styles.arrowRigthPosition}`} />
-                    <div className={`${styles.arrowLeft} ${styles.arrowLeftPosition}`} style={{}} />
-                </div>
                 <div className={`${styles.circle} ${styles.boxShadowPosition}`} />
                 <div className={styles.arrowThumbBlock}>
                     <div className={`${styles.arrowRigth} ${styles.arrowRigthPositionInThumb}`} />
@@ -40,6 +39,9 @@ const Scrollbar: FC<IScrollbar> = ({ scrollbarWidth, scrollbarShadowColor, round
                     }}></div>
                 </div>
             </div >
+            <div className={styles.arrowBlock}>
+                <div className={`${styles.arrowRigth} ${styles.arrowRigthPosition}`} />
+            </div>
         </>
     )
 
